@@ -115,6 +115,24 @@
         .sample-link { font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warm); text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-start; border-bottom: 1px solid rgba(201,169,110,0.4); padding-bottom: 0.2rem; transition: color 0.2s, border-color 0.2s; }
         .sample-link:hover { color: var(--ivory); border-color: var(--ivory); }
 
+        /* TOOLKIT MARQUEE */
+        #toolkit { background: #080604; padding: 4.5rem 0; overflow: hidden; }
+        #toolkit .section-label, #toolkit h2 { padding: 0 6vw; }
+        #toolkit .section-label { color: var(--warm); }
+        #toolkit .section-label::before { background: var(--warm); }
+        #toolkit h2 { margin-bottom: 3rem; }
+        .toolkit-track-wrap { position: relative; width: 100%; mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+        .toolkit-track { display: flex; gap: 1.2rem; width: max-content; animation: toolkitScroll 38s linear infinite; }
+        .toolkit-track-wrap:hover .toolkit-track { animation-play-state: paused; }
+        .toolkit-pill { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; background: #0F0C09; border: 1px solid rgba(201,169,110,0.18); padding: 0.9rem 1.6rem; border-radius: 2px; font-size: 0.92rem; letter-spacing: 0.02em; color: var(--ivory); white-space: nowrap; transition: border-color 0.25s, transform 0.25s; }
+        .toolkit-pill:hover { border-color: var(--warm); transform: translateY(-2px); }
+        .toolkit-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+        @keyframes toolkitScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        @media (max-width: 600px) {
+            .toolkit-track { animation-duration: 26s; }
+            .toolkit-pill { padding: 0.7rem 1.2rem; font-size: 0.84rem; }
+        }
+
         /* SERVICES */
         #services { background: #080604; }
         .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 3.5rem; }
@@ -217,6 +235,7 @@
     <a class="logo" href="#hero">Fego<span>.</span></a>
     <nav>
         <a href="#about">About</a>
+        <a href="#toolkit">Toolkit</a>
         <a href="#services">Services</a>
         <a href="#samples">Work</a>
         <a href="#experience">Experience</a>
@@ -263,7 +282,7 @@
                     <div class="intro-video-eyebrow">Introduction</div>
                     <div class="intro-video-title">Get to know me</div>
                     <!-- Replace # with your Drive "Anyone with the link can view" share link -->
-                    <a href="https://drive.google.com/file/d/1q9JXFRqHwBLaqqk1wJq7UU-NeXtSa9Hf/view?usp=drivesdk" target="_blank" rel="noopener" class="intro-video-btn">Watch Video ↗</a>
+                    <a href="https://drive.google.com/file/d/1q9JXFRqHwBLaqqk1wJq7UU-NeXtSa9Hf/view?usp=sharing" target="_blank" rel="noopener" class="intro-video-btn">Watch Video ↗</a>
                 </div>
             </div>
             <div class="about-quick">
@@ -275,8 +294,8 @@
             
         </div>
         <div class="about-right">
-            <p>"I don't show up just to get things done; I show up to make things better."</p>
-            <p>I'm Umuteme OgheneFego Peace, an Operations &amp; Executive Partner based in Nigeria with a sharp eye for detail and an even sharper drive for results. In a short time, I've had the privilege of working with busy executives, startup founders, and dynamic teams — learning fast, delivering consistently, and proving that experience is built through impact, not just time.</p>
+            <p>"Please hand me the chaos. I'll hand you back a system."</p>
+            <p>I'm Umuteme OgheneFego Peace, an Operations &amp; Executive Partner based in Nigeria. I bring my own eyes, ears, and brain to your business, watching for what's about to break, picking up on what's not being said, and connecting the dots before you ever have to ask. In a short time, I've worked with busy executives, startup founders, and dynamic teams, proving that experience is built through impact, not just time.</p>
             <p>I take the backend chaos, the administrative noise, and the time-consuming tasks off your plate, so you can focus and make real progress. I implement systems, stay three steps ahead, and treat every client's business the way I'd treat mine.</p>
             <div class="mission-vision">
                 <div class="mv-card">
@@ -294,16 +313,70 @@
 
 <div class="section-divider"></div>
 
+<section id="toolkit">
+    <div class="section-label">Daily Workflow Stack</div>
+    <h2>My Toolkit.</h2>
+    <div class="toolkit-track-wrap">
+        <div class="toolkit-track">
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Google Workspace</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Microsoft Office</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Claude</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Notion</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>ClickUp</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Asana</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Trello</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Monday.com</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Airtable</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Zapier</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Make.com</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Loom</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Fireflies.ai</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Microsoft Teams</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>HubSpot</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Zoho CRM</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>GoHighLevel</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>QuickBooks</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Canva</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Slack</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Calendly</div>
+            <!-- duplicate set for seamless loop -->
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Google Workspace</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Microsoft Office</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Claude</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Notion</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>ClickUp</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Asana</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Trello</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Monday.com</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Airtable</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Zapier</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Make.com</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Loom</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Fireflies.ai</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Microsoft Teams</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>HubSpot</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Zoho CRM</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>GoHighLevel</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>QuickBooks</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Canva</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Slack</div>
+            <div class="toolkit-pill"><span class="toolkit-dot"></span>Calendly</div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
 <section id="services">
     <div class="section-label">What I Do</div>
     <h2>Services tailored to <em style="font-family:'Cormorant Garamond',serif;font-style:italic;">your</em> pace and growth.</h2>
     <div class="services-grid">
-        <div class="service-card"><div class="service-number">01</div><h3>Systems &amp; Process Optimization</h3><p>Identifying workflow inefficiencies, building SOPs, automating repetitive tasks, and implementing tools that save you time, reduce friction, and scale with your growth.</p></div>
-        <div class="service-card"><div class="service-number">02</div><h3>Project &amp; Task Management</h3><p>Keeping projects on track, coordinating moving parts, setting up task management systems (Asana, Trello, Notion), and ensuring your team stays aligned and deadlines are met.</p></div>
-        <div class="service-card"><div class="service-number">03</div><h3>Research &amp; Discovery</h3><p>In-depth research on topics, competitors, markets, or prospects — delivered in clear, organized formats so you can make fast, informed decisions without hours of digging.</p></div>
-        <div class="service-card"><div class="service-number">04</div><h3>Communications &amp; Correspondence</h3><p>Drafting emails, following up with clients and leads, managing communication channels, and ensuring every message going out represents you professionally and promptly.</p></div>
-        <div class="service-card"><div class="service-number">05</div><h3>Executive &amp; Administrative Support</h3><p>Calendar and schedule management, email inbox handling, document preparation, data entry, filing, and day-to-day administrative tasks — handled with precision so nothing falls through the cracks.</p></div>
-        <div class="service-card"><div class="service-number">06</div><h3>Social Media &amp; Content Support</h3><p>Scheduling content, managing posting calendars, light content creation, engagement monitoring, and keeping your online presence consistent and active across platforms.</p></div>
+        <div class="service-card"><div class="service-number">01</div><h3>Systems &amp; Process Optimization</h3><p>SOP documentation, process mapping, tool implementation, workflow design, internal knowledge base building.</p></div>
+        <div class="service-card"><div class="service-number">02</div><h3>Workflow Automation</h3><p>Zapier/Make automations, AI prompt engineering, eliminating repetitive manual tasks, building no-code workflows that run without you.</p></div>
+        <div class="service-card"><div class="service-number">03</div><h3>Project &amp; Operations Management</h3><p>Project coordination, vendor/contractor coordination, hiring coordination, onboarding, event planning and logistics, team coordination across time zones.</p></div>
+        <div class="service-card"><div class="service-number">04</div><h3>Executive &amp; Administrative Operations</h3><p>Calendar management, inbox management, travel coordination, meeting preparation, document management, confidential data handling, personal assistant tasks.</p></div>
+        <div class="service-card"><div class="service-number">05</div><h3>Research &amp; Reporting</h3><p>Market/competitor/prospect research, data analysis, creating reports, presentations and summaries, decision-ready briefs.</p></div>
+        <div class="service-card"><div class="service-number">06</div><h3>Financial &amp; CRM Operations</h3><p>Expense tracking and reporting, bookkeeping (QuickBooks), CRM management, client pipeline management, contact organization.</p></div>
     </div>
 </section>
 
