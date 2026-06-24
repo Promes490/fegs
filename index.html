@@ -10,11 +10,23 @@
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
             --ivory: #E8E0D4;
-            --deep: #0A0806;
-            --warm: #C9A96E;
-            --accent: #B8862A;
-            --muted: #9A9088;
-            --light-line: rgba(201,169,110,0.18);
+                --deep: #0A0806;
+                --warm: #C9A96E;
+                --accent: #B8862A;
+                --muted: #9A9088;
+                --light-line: rgba(201,169,110,0.18);
+                /* Compatibility vars for embedded timeline markup */
+                --color-text-primary: var(--ivory);
+                --color-text-secondary: rgba(232,224,212,0.72);
+                --color-border-tertiary: var(--light-line);
+                --color-background-secondary: #0F0C09;
+                --border-radius-md: 6px;
+                /* Additional vars for education mockup */
+                --color-text-tertiary: rgba(232,224,212,0.58);
+                --color-background-primary: #0F0C09;
+                --color-background-info: #131009;
+                --color-text-info: var(--warm);
+                --border-radius-lg: 10px;
         }
         html { scroll-behavior: smooth; }
         body { font-family: 'DM Sans', sans-serif; background: #080604; color: var(--ivory); overflow-x: hidden; }
@@ -153,9 +165,42 @@
         .exp-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 400; margin-bottom: 0.3rem; color: var(--ivory); }
         .exp-item .org { font-size: 0.82rem; color: var(--muted); margin-bottom: 0.5rem; }
         .exp-item p { font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
-        .cert-badge { display: inline-block; background: var(--accent); color: #0A0806; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 2px; margin-bottom: 0.6rem; }
+        .bg-subhead { font-size: 11px; letter-spacing: 0.08em; color: var(--color-text-tertiary); text-transform: uppercase; margin: 0 0 1rem; border-bottom: 0.5px solid var(--color-border-tertiary); padding-bottom: 0.5rem; }
+        .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 2.5rem; align-items: start; }
+        .edu-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; }
+        .edu-card .edu-year { font-size: 11px; color: var(--color-text-tertiary); margin: 0 0 4px; }
+        .edu-card .edu-title { font-size: 15px; font-weight: 500; margin: 0 0 2px; color: var(--color-text-primary); }
+        .edu-card .edu-org { font-size: 13px; color: var(--color-text-secondary); margin: 0 0 10px; }
+        .edu-card .edu-desc { font-size: 13px; color: var(--color-text-secondary); margin: 0 0 10px; line-height: 1.6; }
+        .edu-coursework-label { font-size: 11px; color: var(--color-text-tertiary); margin: 0 0 6px; font-weight: 500; }
+        .edu-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .edu-tag { font-size: 11px; padding: 3px 8px; border: 0.5px solid var(--color-border-tertiary); border-radius: 999px; color: var(--color-text-secondary); }
+        .edu-cert-visual { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px; gap: 10px; text-align: center; }
+        .edu-cert-visual .cert-icon { font-size: 34px; line-height: 1; color: var(--color-text-tertiary); }
+        .edu-cert-visual p { margin: 0; }
+        .edu-cert-visual .cert-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
+        .edu-cert-visual .cert-org { font-size: 12px; color: var(--color-text-tertiary); }
+        .edu-cert-visual a { font-size: 12px; color: var(--color-text-info); text-decoration: none; margin-top: 4px; }
+        .cert-row-list { display: flex; flex-direction: column; gap: 10px; }
+        .cert-row { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 12px; }
+        .cert-row .cert-row-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--color-background-info); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; color: var(--color-text-info); }
+        .cert-row .cert-row-title { font-weight: 500; font-size: 14px; margin: 0 0 2px; color: var(--color-text-primary); }
+        .cert-row .cert-row-sub { font-size: 12px; color: var(--color-text-secondary); margin: 0; }
+        @media (max-width: 600px) {
+            .edu-grid { grid-template-columns: 1fr; }
+        }
+
         .tool-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
         .tool-tag { font-size: 0.75rem; letter-spacing: 0.04em; color: var(--warm); background: rgba(201,169,110,0.07); border: 1px solid rgba(201,169,110,0.22); padding: 0.28rem 0.75rem; border-radius: 2px; }
+
+        /* Timeline / Experience additional styles */
+        .timeline-list { padding-top: 0.6rem; }
+        .timeline-list p { color: var(--color-text-secondary); margin: 0 0 0.6rem; }
+        .timeline-list > div { margin-bottom: 1.2rem; }
+        .timeline-list button { font-size: 0.85rem; color: var(--warm); background: none; border: 0.5px solid rgba(201,169,110,0.35); border-radius: 999px; cursor: pointer; padding: 6px 12px; display: inline-flex; align-items: center; gap: 6px; }
+        .timeline-list button:hover { background: rgba(201,169,110,0.04); }
+        .timeline-list [id$="-label"] { font-weight: 600; }
+        .timeline-list > div[id] { transition: opacity 0.18s ease, max-height 0.28s ease; }
 
         /* TESTIMONIALS */
         #testimonials { background: #080604; }
@@ -438,150 +483,222 @@
 <div class="section-divider"></div>
 
 <section id="experience">
-    <div class="section-label">Background</div>
-    <h2>Experience, education &amp; certifications.</h2>
+        <div class="section-label">Background</div>
+        <h2>Experience, education &amp; certifications.</h2>
 
-    <div class="exp-grid">
+        <div class="exp-grid">
 
-        <div class="exp-column">
-            <h3>💼 Work Experience</h3>
+                <div class="exp-column">
+                        <h3>💼 Work Experience</h3>
 
-            <div class="exp-item">
-                <div class="exp-year">Apr 2026 – Present</div>
-                <h4>Virtual Assistant Mentor (Voluntary)</h4>
-                <div class="org">HNG Tech &middot; Remote</div>
-                <p>
-                    Guide VA interns through all 10 stages of the program — email
-                    management, scheduling, research, and client communication —
-                    turning theory into job-ready practice. Resolve intern challenges
-                    promptly and collaborate with fellow mentors to design
-                    stage-specific learning milestones.
-                </p>
-            </div>
+                        <div class="timeline-list" style="padding:1rem 0; font-family: inherit;">
 
-            <div class="exp-item">
-                <div class="exp-year">Dec 2025 – May 2026</div>
-                <h4>Executive Assistant &amp; Head of Operations</h4>
-                <div class="org">ArcnetLabs &middot; AI-First Engineering Lab (Remote Contract)</div>
-                <p>
-                    Managed complex calendars and travel for the Founder with zero
-                    scheduling conflicts. Accelerated strategic decision-making by
-                    25% via AI-leveraged research synthesis, and reduced manual
-                    admin effort by 15+ hours weekly through automated, no-code
-                    workflows. Coordinated a 4-person distributed team across
-                    4 time zones with 100% project visibility.
-                </p>
-            </div>
+    <!-- Removed duplicate inline "Work Experience" label to avoid title duplication -->
 
-            <div class="exp-item">
-                <div class="exp-year">Jan 2026 – Apr 2026</div>
-                <h4>Executive Assistant</h4>
-                <div class="org">Xpacy Limited &middot; Property Tech (Remote Contract)</div>
-                <p>
-                    Increased executive workflow efficiency by 30% managing
-                    calendars and strategic follow-ups. Managed 8+ vendors via a
-                    structured maintenance protocol, reducing property downtime by
-                    20%, and maintained 100% financial accuracy through bookkeeping
-                    and expense tracking.
-                </p>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-year">Oct 2025 – Dec 2025</div>
-                <h4>Virtual Assistant Intern</h4>
-                <div class="org">HNG Tech &middot; Competitive Internship (Remote)</div>
-                <p>
-                    Ranked in the top 4% of 12,000+ participants. Managed calendars
-                    and admin workflows for 3+ executives simultaneously across
-                    time zones, and developed SOPs that standardized remote
-                    collaboration frameworks across the team.
-                </p>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-year">Feb 2025 – Dec 2025</div>
-                <h4>Internal Control &amp; Compliance Intern (National Service)</h4>
-                <div class="org">NIRSAL Plc &middot; Abuja, Nigeria</div>
-                <p>
-                    Maintained 100% data integrity across 500+ financial records.
-                    Improved document retrieval efficiency by 60% by engineering a
-                    digital filing system and leading full digitization of sensitive
-                    institutional records.
-                </p>
+    <!-- Role 1 -->
+    <div style="margin-bottom:2rem;padding-bottom:2rem;border-bottom:0.5px solid var(--color-border-tertiary);">
+        <p style="font-size:11px;letter-spacing:0.08em;color:#B7A66B;text-transform:uppercase;margin:0 0 6px;">Apr 2026 – Present</p>
+        <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Operations & Executive Partner Mentor</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">HNG Tech · Remote</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Guide VA interns through all 10 stages of the program — email management, scheduling, research, and client communication — turning theory into job-ready practice. Resolve intern challenges promptly and collaborate with fellow mentors to design stage-specific learning milestones.</p>
+        <button onclick="toggle('hng-mentor')" style="font-size:12px;color:#B7A66B;background:none;border:0.5px solid #B7A66B;border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
+            <span id="hng-mentor-label">+ View full scope of work</span>
+        </button>
+        <div id="hng-mentor" style="display:none;margin-top:14px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Mentorship & Coaching</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Guided interns through 10 structured stages, providing feedback, accountability, and practical skill-building at each milestone.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Curriculum Design</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Co-designed stage-specific tasks and measurable learning milestones with fellow mentors to ensure structured, consistent intern growth.</p>
+                </div>
             </div>
         </div>
-
-        <div class="exp-column">
-            <h3>🎓 Education &amp; Certifications</h3>
-
-            <div class="exp-item">
-                <div class="exp-year">2024</div>
-                <h4>B.Sc. Computer Science</h4>
-                <div class="org">
-                    Landmark University &middot; Second Class Honours (Upper Division)
-                </div>
-                <p>
-                    A technical foundation most VAs don't have — I understand how
-                    systems are built, which is why I notice where they break.
-                </p>
-            </div>
-
-            <div class="exp-item">
-                <span class="cert-badge">Finalist</span>
-                <h4>HNG Internship 13 — Virtual Assistance Track</h4>
-                <div class="org">Top 450 of 12,362 interns</div>
-                <p>
-                    Selected as one of the top performers across the entire cohort,
-                    demonstrating readiness for real-world client work.
-                </p>
-            </div>
-
-            <div class="exp-item">
-                <span class="cert-badge">Certification</span>
-                <h4>Virtual Assistant Professional Training</h4>
-                <div class="org">Executive Support &amp; Operations</div>
-                <p>
-                    Advanced training covering executive assistance, calendar
-                    management, project coordination, communication systems,
-                    documentation, SOP creation, and business operations support.
-                </p>
-            </div>
-
-            <div class="exp-item">
-                <h4>Tools &amp; Platforms</h4>
-                <div class="org">Daily Workflow Stack</div>
-
-                <div class="tool-tags">
-                    <span class="tool-tag">Google Workspace</span>
-                    <span class="tool-tag">Microsoft Office</span>
-                    <span class="tool-tag">Notion</span>
-                    <span class="tool-tag">ClickUp</span>
-                    <span class="tool-tag">Asana</span>
-                    <span class="tool-tag">Trello</span>
-                    <span class="tool-tag">Slack</span>
-                    <span class="tool-tag">Zoom</span>
-                    <span class="tool-tag">Calendly</span>
-                    <span class="tool-tag">ChatGPT</span>
-                    <span class="tool-tag">Zapier</span>
-                </div>
-            </div>
-
-            <div class="exp-item">
-                <div class="exp-year">Core Strengths</div>
-                <h4>What Sets Me Apart</h4>
-
-                <div class="tool-tags">
-                    <span class="tool-tag">Extreme Ownership</span>
-                    <span class="tool-tag">Proactive Communication</span>
-                    <span class="tool-tag">Detail-Oriented</span>
-                    <span class="tool-tag">Fast Learner</span>
-                    <span class="tool-tag">High Standards</span>
-                </div>
-            </div>
-
-        </div>
-
     </div>
+
+    <!-- Role 2 -->
+    <div style="margin-bottom:2rem;padding-bottom:2rem;border-bottom:0.5px solid var(--color-border-tertiary);">
+        <p style="font-size:11px;letter-spacing:0.08em;color:#B7A66B;text-transform:uppercase;margin:0 0 6px;">Dec 2025 – May 2026</p>
+        <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Executive Assistant & Head of Operations</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">ArcnetLabs · AI-First Engineering Lab (Remote Contract)</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Served as the Founder's gatekeeper and first point of contact for all external communications. Accelerated strategic decision-making by 25% via AI-leveraged research synthesis, and reduced manual admin effort by 15+ hours weekly through automated, no-code workflows. Coordinated a 4-person distributed team across 4 time zones with 100% project visibility.</p>
+        <button onclick="toggle('arcnet')" style="font-size:12px;color:#B7A66B;background:none;border:0.5px solid #B7A66B;border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
+            <span id="arcnet-label">+ View full scope of work</span>
+        </button>
+        <div id="arcnet" style="display:none;margin-top:14px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Operations & Systems</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Synthesized strategy sessions into SOPs, PRDs, and technical roadmaps ensuring team-wide alignment across all workstreams.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">HR & Recruitment</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed full recruitment pipeline for 5+ roles, screening 20+ candidates from sourcing to onboarding.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Team Coordination</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Coordinated a 4-person distributed team across time zones using async tools with 24/7 project visibility.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Automation & AI</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Reduced manual effort by 15+ hours weekly through automated workflows and no-code solutions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Role 3 -->
+    <div style="margin-bottom:2rem;padding-bottom:2rem;border-bottom:0.5px solid var(--color-border-tertiary);">
+        <p style="font-size:11px;letter-spacing:0.08em;color:#B7A66B;text-transform:uppercase;margin:0 0 6px;">Jan 2026 – Apr 2026</p>
+        <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Executive Assistant</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">Xpacy Limited · Property Tech (Remote Contract)</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Increased executive workflow efficiency by 30% managing calendars and strategic follow-ups. Managed 8+ vendors via a structured maintenance protocol, reducing property downtime by 20%, and maintained 100% financial accuracy through bookkeeping and expense tracking.</p>
+        <button onclick="toggle('xpacy')" style="font-size:12px;color:#B7A66B;background:none;border:0.5px solid #B7A66B;border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
+            <span id="xpacy-label">+ View full scope of work</span>
+        </button>
+        <div id="xpacy" style="display:none;margin-top:14px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Vendor & Operations</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed 8+ vendors via structured maintenance protocol, reducing property downtime by 20%.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Financial Operations</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Maintained 100% financial accuracy through QuickBooks bookkeeping, expense tracking, and SOP standardization.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Stakeholder Relations</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed 25+ weekly inspections and partnerships, strengthening investor relations and project alignment.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Guest Experience</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Oversaw 10-15 monthly reservations with zero check-in/out conflicts and 100% property readiness.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Role 4 -->
+    <div style="margin-bottom:2rem;padding-bottom:2rem;border-bottom:0.5px solid var(--color-border-tertiary);">
+        <p style="font-size:11px;letter-spacing:0.08em;color:#B7A66B;text-transform:uppercase;margin:0 0 6px;">Oct 2025 – Dec 2025</p>
+        <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Virtual Assistant Intern</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">HNG Tech · Competitive Internship (Remote)</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Ranked top 450 of 12,362 participants. Managed calendars for 3+ executives simultaneously across time zones, coordinated international travel, and developed SOPs that standardized remote collaboration frameworks.</p>
+        <button onclick="toggle('hng-intern')" style="font-size:12px;color:#B7A66B;background:none;border:0.5px solid #B7A66B;border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
+            <span id="hng-intern-label">+ View full scope of work</span>
+        </button>
+        <div id="hng-intern" style="display:none;margin-top:14px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Executive Support</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed meeting coordination, task lists, and admin workflows for 5+ executives across multiple time zones with zero conflicts.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Travel Coordination</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Orchestrated itineraries and cross-border meeting schedules for high-priority remote clients across international time zones.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 10px 10px;grid-column:1/-1;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">SOP Development</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Developed SOPs that standardized remote collaboration frameworks, contributing to more consistent team output across the cohort.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Role 5 -->
+    <div>
+        <p style="font-size:11px;letter-spacing:0.08em;color:#B7A66B;text-transform:uppercase;margin:0 0 6px;">Feb 2025 – Dec 2025</p>
+        <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Internal Control & Compliance Intern</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">NIRSAL Plc · Abuja, Nigeria</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Maintained 100% data integrity across 500+ financial and operational records. Engineered a digital filing system improving document retrieval efficiency by 60% and oversaw digitization of sensitive institutional records for audit and compliance readiness.</p>
+        <button onclick="toggle('nirsal')" style="font-size:12px;color:#B7A66B;background:none;border:0.5px solid #B7A66B;border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
+            <span id="nirsal-label">+ View full scope of work</span>
+        </button>
+        <div id="nirsal" style="display:none;margin-top:14px;">
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Data Integrity</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Processed and verified 500+ financial and operational records with 100% accuracy under strict institutional confidentiality.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Systems Engineering</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Designed a digital filing system improving retrieval efficiency by 60% and standardizing internal reporting workflows.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;grid-column:1/-1;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Compliance & Digitization</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Oversaw digitization of sensitive institutional records to enhance accessibility for internal audits, compliance reviews, and operational scaling.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                        </div>
+                </div>
+
+                <div class="exp-column">
+                    <h3>🎓 Education &amp; Certifications</h3>
+
+                    <p class="bg-subhead">Education</p>
+                    <div class="edu-grid">
+                        <div class="edu-card">
+                            <p class="edu-year">2024</p>
+                            <p class="edu-title">B.Sc. Computer Science</p>
+                            <p class="edu-org">Landmark University &middot; Second Class Honours (Upper Division)</p>
+                            <p class="edu-desc">A technical foundation most ops professionals don't have — understanding how systems are built means I notice exactly where they break.</p>
+                            <p class="edu-coursework-label">Relevant coursework</p>
+                            <div class="edu-tags">
+                                <span class="edu-tag">Systems Analysis</span>
+                                <span class="edu-tag">Database Management</span>
+                                <span class="edu-tag">Project Management</span>
+                                <span class="edu-tag">Data Structures</span>
+                                <span class="edu-tag">Software Engineering</span>
+                            </div>
+                        </div>
+                        <div class="edu-cert-visual">
+                            <span class="cert-icon">🎓</span>
+                            <p class="cert-name">B.Sc. Certificate</p>
+                            <p class="cert-org">Landmark University, 2024</p>
+                            <a href="./images/Bsc. Computer Science.pdf" target="_blank" rel="noopener">View certificate ↗</a>
+                        </div>
+                    </div>
+
+                    <p class="bg-subhead">Certifications</p>
+                    <div class="cert-row-list">
+                        <div class="cert-row">
+                            <div class="cert-row-icon">🏅</div>
+                            <div>
+                                <p class="cert-row-title">HNG Internship 13 — Virtual Assistance Track</p>
+                                <p class="cert-row-sub">Top 450 of 12,362 interns</p>
+                            </div>
+                        </div>
+                        <div class="cert-row">
+                            <div class="cert-row-icon">📜</div>
+                            <div>
+                                <p class="cert-row-title">Virtual Assistant Professional Training</p>
+                                <p class="cert-row-sub">ALX Africa &middot; 10-Week Programme</p>
+                            </div>
+                        </div>
+                        <div class="cert-row">
+                            <div class="cert-row-icon">📋</div>
+                            <div>
+                                <p class="cert-row-title">Project Management (PMP)</p>
+                                <p class="cert-row-sub">Exford Global Consult Limited</p>
+                            </div>
+                        </div>
+                        <div class="cert-row">
+                            <div class="cert-row-icon">🤝</div>
+                            <div>
+                                <p class="cert-row-title">Customer Service &amp; Relationship Management</p>
+                                <p class="cert-row-sub">Exford Global Consult Limited</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
 </section>
 
 <div class="section-divider"></div>
@@ -803,6 +920,21 @@
             header.style.boxShadow = 'none';
         }
     }, { passive: true });
+
+    // Simple toggle used by the experience timeline buttons
+    function toggle(id) {
+        const el = document.getElementById(id);
+        const label = document.getElementById(id + '-label');
+        if (!el) return;
+        const isHidden = el.style.display === 'none' || getComputedStyle(el).display === 'none';
+        if (isHidden) {
+            el.style.display = 'block';
+            if (label) label.textContent = '- Hide full scope';
+        } else {
+            el.style.display = 'none';
+            if (label) label.textContent = '+ View full scope of work';
+        }
+    }
 </script>
 </body>
 </html>
