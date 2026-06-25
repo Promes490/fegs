@@ -190,6 +190,25 @@
             .edu-grid { grid-template-columns: 1fr; }
         }
 
+        /* CERT FILE MANAGER */
+        .certificate-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 0.75rem; }
+        .certificate-card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease; display: flex; flex-direction: column; }
+        .certificate-card:hover { transform: translateY(-3px); border-color: var(--warm); box-shadow: 0 16px 34px rgba(0,0,0,0.08); }
+        .certificate-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+        .certificate-card-meta { padding: 0.95rem 1rem 1.1rem; }
+        .certificate-card-title { font-size: 0.88rem; font-weight: 600; color: var(--color-text-primary); margin: 0 0 0.35rem; }
+        .certificate-card-sub { font-size: 0.76rem; color: var(--color-text-secondary); margin: 0; line-height: 1.45; }
+        @media (max-width: 900px) { .certificate-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 620px) { .certificate-gallery { grid-template-columns: 1fr; } }
+        /* CERT LIGHTBOX */
+        .cert-lightbox { display: none; position: fixed; inset: 0; z-index: 999; background: rgba(8,6,4,0.88); backdrop-filter: blur(8px); align-items: center; justify-content: center; }
+        .cert-lightbox.open { display: flex; }
+        .cert-lightbox-inner { position: relative; max-width: min(860px, 92vw); width: 100%; }
+        .cert-lightbox-close { position: absolute; top: -14px; right: -14px; width: 34px; height: 34px; border-radius: 50%; background: var(--accent); color: #0A0806; border: none; font-size: 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 2; transition: background 0.2s; }
+        .cert-lightbox-close:hover { background: var(--warm); }
+        .cert-lightbox-body img { width: 100%; border-radius: 8px; box-shadow: 0 24px 60px rgba(0,0,0,0.6); display: block; }
+        .cert-lightbox-body .cert-lb-title { text-align: center; font-size: 0.82rem; color: var(--muted); margin-top: 0.8rem; letter-spacing: 0.06em; }
+
         .tool-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
         .tool-tag { font-size: 0.75rem; letter-spacing: 0.04em; color: var(--warm); background: rgba(201,169,110,0.07); border: 1px solid rgba(201,169,110,0.22); padding: 0.28rem 0.75rem; border-radius: 2px; }
 
@@ -202,15 +221,31 @@
         .timeline-list [id$="-label"] { font-weight: 600; }
         .timeline-list > div[id] { transition: opacity 0.18s ease, max-height 0.28s ease; }
 
-        /* TESTIMONIALS */
+        /* TESTIMONIAL GALLERY */
         #testimonials { background: #080604; }
-        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
-        .testimonial-card { background: #0F0C09; border: 1px solid rgba(201,169,110,0.12); border-top: 3px solid var(--accent); padding: 2rem 2rem 1.8rem; }
-        .testi-stars { color: var(--accent); font-size: 0.75rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
-        .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; line-height: 1.8; font-style: italic; color: rgba(232,224,212,0.78); margin-bottom: 1.5rem; }
-        .testi-quote::before { content: '\201C'; color: var(--accent); font-size: 1.6rem; line-height: 0; vertical-align: -0.3em; margin-right: 0.2rem; }
-        .testi-name { display: block; font-size: 0.82rem; font-weight: 500; color: var(--ivory); letter-spacing: 0.06em; }
-        .testi-role { display: block; font-size: 0.76rem; color: var(--muted); margin-top: 0.2rem; }
+        .testi-sublabel { font-size: 11px; letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; margin: 2.5rem 0 1rem; }
+        .testimonial-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 1rem; }
+        .testimonial-card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 18px; overflow: hidden; cursor: pointer; transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease; }
+        .testimonial-card:hover { transform: translateY(-3px); border-color: var(--warm); box-shadow: 0 22px 40px rgba(0,0,0,0.08); }
+        .testimonial-card img { width: 100%; display: block; aspect-ratio: 4 / 3; object-fit: cover; }
+        @media (max-width: 900px) { .testimonial-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 620px) { .testimonial-gallery { grid-template-columns: 1fr; } }
+        /* Two-slider styles */
+        .slider-track { display: flex; gap: 12px; transition: transform 0.45s cubic-bezier(.2,.9,.2,1); padding: 4px 0; }
+        .review-card { min-width: 320px; max-width: 420px; flex: 0 0 auto; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
+        .review-card p { margin: 0 0 0.4rem; }
+        .view-btn { margin-top: 8px; background: transparent; border: 0.5px solid rgba(201,169,110,0.12); color: var(--warm); padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 0.82rem; }
+        .nav-btn { background: transparent; border: 0.5px solid var(--color-border-tertiary); color: var(--ivory); padding: 6px 10px; border-radius: 6px; cursor: pointer; }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(232,224,212,0.12); }
+        .dot.active { background: var(--warm); }
+        .dot.inactive { opacity: 0.5; }
+        @media (max-width: 960px) { .review-card { min-width: 260px; } }
+        /* Testimonial screenshot lightbox */
+        .tl-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.85); backdrop-filter: blur(6px); align-items: center; justify-content: center; }
+        .tl-lightbox.open { display: flex; }
+        .tl-inner { position: relative; max-width: 90vw; max-height: 85vh; }
+        .tl-inner img { max-width: 100%; max-height: 85vh; border-radius: 10px; object-fit: contain; display: block; }
+        .tl-close { position: absolute; top: -14px; right: -14px; width: 28px; height: 28px; border-radius: 50%; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 12px; color: var(--color-text-primary); }
 
         /* CTA */
         #cta { background: #0A0806; border-top: 1px solid var(--light-line); border-bottom: 1px solid var(--light-line); text-align: center; padding: 5.5rem 6vw; }
@@ -516,7 +551,7 @@
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
                     <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Structured Feedback</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Delivers written feedback that goes beyond marking right or wrong, explaining the gap, the standard, and the corrective path forward.</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Delivers written feedback that goes beyond marking right or wrong — explaining the gap, the standard, and the corrective path forward.</p>
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
                     <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Educational Sessions</p>
@@ -531,27 +566,27 @@
         <p style="font-size:11px;letter-spacing:0.08em;color:var(--warm);text-transform:uppercase;margin:0 0 6px;">Dec 2025 – May 2026</p>
         <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Executive Assistant & Head of Operations</p>
         <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">ArcnetLabs · AI-First Engineering Lab (Remote Contract)</p>
-        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Served as the Founder's gatekeeper and first point of contact for all external communications. Accelerated strategic decision-making by 25% via AI-leveraged research synthesis, and reduced manual admin effort by 15+ hours weekly through automated, no-code workflows. Coordinated a 4-person distributed team across 4 time zones with 100% project visibility.</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Executive Assistant and Head of Operations to the Founder and CEO of ArcnetLabs, an AI-first engineering lab building automation systems and AI products. Functioned as the operational backbone of the company, the first point of contact for anyone needing to reach the Founder, and the person responsible for making sure nothing fell through the cracks across 4 simultaneous product workstreams.</p>
         <button onclick="toggle('arcnet')" style="font-size:12px;color:var(--warm);background:none;border:0.5px solid var(--warm);border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
             <span id="arcnet-label">+ View full scope of work</span>
         </button>
         <div id="arcnet" style="display:none;margin-top:14px;">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Operations & Systems</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Synthesized strategy sessions into SOPs, PRDs, and technical roadmaps ensuring team-wide alignment across all workstreams.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Operations &amp; Documentation</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Synthesized weekly strategy sessions into technical roadmaps, SOPs, and PRDs, ensuring team-wide alignment across all active workstreams.</p>
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">HR & Recruitment</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed full recruitment pipeline for 5+ roles, screening 20+ candidates from sourcing to onboarding.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">HR &amp; Recruitment</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Spearheaded the recruitment pipeline for 5+ technical and operational roles, from initial sourcing and candidate screening through to onboarding, handling 20+ applicants across multiple hiring cycles.</p>
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
                     <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Team Coordination</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Coordinated a 4-person distributed team across time zones using async tools with 24/7 project visibility.</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Coordinated a distributed 4-person engineering team across multiple time zones using asynchronous tools to maintain 24/7 project momentum and full visibility with zero delays.</p>
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Automation & AI</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Reduced manual effort by 15+ hours weekly through automated workflows and no-code solutions.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Automation &amp; Workflow Design</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Reduced manual operational effort by 15+ hours weekly by designing and implementing automated workflows and no-code solutions to eliminate repetitive administrative tasks.</p>
                 </div>
             </div>
         </div>
@@ -562,27 +597,27 @@
         <p style="font-size:11px;letter-spacing:0.08em;color:var(--warm);text-transform:uppercase;margin:0 0 6px;">Jan 2026 – Apr 2026</p>
         <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Executive Assistant</p>
         <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">Xpacy Limited · Property Tech (Remote Contract)</p>
-        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Increased executive workflow efficiency by 30% managing calendars and strategic follow-ups. Managed 8+ vendors via a structured maintenance protocol, reducing property downtime by 20%, and maintained 100% financial accuracy through bookkeeping and expense tracking.</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Served as Executive Virtual Assistant directly to the CEO of Xpacy Limited, a tech-driven real estate and facility management platform. Managed the day-to-day operational and administrative functions that kept the business running, from calendar and communications to property coordination and vendor management.</p>
         <button onclick="toggle('xpacy')" style="font-size:12px;color:var(--warm);background:none;border:0.5px solid var(--warm);border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
             <span id="xpacy-label">+ View full scope of work</span>
         </button>
         <div id="xpacy" style="display:none;margin-top:14px;">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Vendor & Operations</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed 8+ vendors via structured maintenance protocol, reducing property downtime by 20%.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Executive Support &amp; Scheduling</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed complex calendar coordination, scheduling, and follow-ups to ensure seamless execution of the CEO's priorities. Handled meeting coordination, property-related calls, and logistics across internal teams and external stakeholders.</p>
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Financial Operations</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Maintained 100% financial accuracy through QuickBooks bookkeeping, expense tracking, and SOP standardization.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Property &amp; Operations Coordination</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Supported property onboarding, listing updates, bookings, and occupancy tracking. Handled guest communications including check-in/check-out coordination, cleaning schedules, and maintenance tracking.</p>
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Stakeholder Relations</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed 25+ weekly inspections and partnerships, strengthening investor relations and project alignment.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Records &amp; Documentation</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Maintained organized records for property listings, clients, partners, contracts, and operational documents. Managed administrative documentation, process tracking, and operational checklists.</p>
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Guest Experience</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Oversaw 10-15 monthly reservations with zero check-in/out conflicts and 100% property readiness.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Stakeholder &amp; Vendor Liaison</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Liaised with internal teams, vendors, and external partners on behalf of the CEO. Drafted professional, brand-aligned communications and handled sensitive information with strict confidentiality.</p>
                 </div>
             </div>
         </div>
@@ -593,23 +628,27 @@
         <p style="font-size:11px;letter-spacing:0.08em;color:var(--warm);text-transform:uppercase;margin:0 0 6px;">Oct 2025 – Dec 2025</p>
         <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Virtual Assistant Intern</p>
         <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">HNG Tech · Competitive Internship (Remote)</p>
-        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Ranked top 450 of 12,362 participants. Managed calendars for 3+ executives simultaneously across time zones, coordinated international travel, and developed SOPs that standardized remote collaboration frameworks.</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Completed the Virtual Assistant track of HNG Tech's globally competitive internship program, progressing through all 10 stages and finishing as a Finalist out of 12,362 interns across all tracks.</p>
         <button onclick="toggle('hng-intern')" style="font-size:12px;color:var(--warm);background:none;border:0.5px solid var(--warm);border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
             <span id="hng-intern-label">+ View full scope of work</span>
         </button>
         <div id="hng-intern" style="display:none;margin-top:14px;">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Executive Support</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed meeting coordination, task lists, and admin workflows for 5+ executives across multiple time zones with zero conflicts.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Email &amp; Inbox Management</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed and organized executive inboxes, applying triage systems to prioritize, respond to, and file correspondence efficiently.</p>
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Travel Coordination</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Orchestrated itineraries and cross-border meeting schedules for high-priority remote clients across international time zones.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Scheduling &amp; Calendar Coordination</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Handled calendar management tasks including scheduling meetings, resolving conflicts, and maintaining executive availability across time zones.</p>
                 </div>
-                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px 10px 10px;grid-column:1/-1;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">SOP Development</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Developed SOPs that standardized remote collaboration frameworks, contributing to more consistent team output across the cohort.</p>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Research &amp; Reporting</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Conducted structured research tasks and delivered clean, organized reports aligned to real client briefs and stage requirements.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;grid-column:1/-1;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Administrative Operations</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Completed stage-specific tasks across SOP creation, document management, automation, task tracking, and client communication, demonstrating practical competence at each level of the program.</p>
                 </div>
             </div>
         </div>
@@ -620,23 +659,27 @@
         <p style="font-size:11px;letter-spacing:0.08em;color:var(--warm);text-transform:uppercase;margin:0 0 6px;">Feb 2025 – Dec 2025</p>
         <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Internal Control & Compliance Intern</p>
         <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">NIRSAL Plc · Abuja, Nigeria</p>
-        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Maintained 100% data integrity across 500+ financial and operational records. Engineered a digital filing system improving document retrieval efficiency by 60% and oversaw digitization of sensitive institutional records for audit and compliance readiness.</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Completed Nigeria's mandatory one-year National Youth Service Corps (NYSC) programme at Nigeria Incentive-Based Risk Sharing System for Agricultural Lending (NIRSAL Plc), one of Nigeria's foremost agricultural finance institutions. Supported the administrative and documentation operations of the organization across a 10-month service year.</p>
         <button onclick="toggle('nirsal')" style="font-size:12px;color:var(--warm);background:none;border:0.5px solid var(--warm);border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
             <span id="nirsal-label">+ View full scope of work</span>
         </button>
         <div id="nirsal" style="display:none;margin-top:14px;">
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Data Integrity</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Processed and verified 500+ financial and operational records with 100% accuracy under strict institutional confidentiality.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Documentation &amp; Records Management</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Managed documentation processes with high accuracy, maintaining organized physical and digital records across departments in line with institutional standards.</p>
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Systems Engineering</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Designed a digital filing system improving retrieval efficiency by 60% and standardizing internal reporting workflows.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Digital Filing &amp; Systems</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Implemented standardized digital filing systems that improved operational efficiency and made records more accessible across the team.</p>
+                </div>
+                <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;">
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Data Processing &amp; Verification</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Processed and verified financial and administrative data with strict attention to detail, ensuring accuracy and integrity across all handled records.</p>
                 </div>
                 <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:10px;grid-column:1/-1;">
-                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Compliance & Digitization</p>
-                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Oversaw digitization of sensitive institutional records to enhance accessibility for internal audits, compliance reviews, and operational scaling.</p>
+                    <p style="font-size:10px;font-weight:600;color:var(--color-text-primary);margin:0 0 4px;text-transform:uppercase;letter-spacing:0.06em;">Compliance &amp; Confidentiality</p>
+                    <p style="font-size:11px;color:var(--color-text-secondary);margin:0;line-height:1.5;">Handled sensitive institutional and financial information in strict accordance with confidentiality protocols and organizational compliance requirements.</p>
                 </div>
             </div>
         </div>
@@ -654,53 +697,116 @@
                             <p class="edu-year">2020 – 2024</p>
                             <p class="edu-title">B.Sc. Computer Science</p>
                             <p class="edu-org">Landmark University &middot; Second Class Honours (Upper Division)</p>
-                            <p class="edu-desc">A technical foundation most ops professionals don't have — understanding how systems are built means I notice exactly where they break.</p>
+                            <p class="edu-desc">A technical foundation most ops professionals don't have, understanding how systems are built means I notice exactly where they break.</p>
                             <p class="edu-coursework-label">Relevant coursework</p>
                             <div class="edu-tags">
-                                <span class="edu-tag">Systems Analysis</span>
-                                <span class="edu-tag">Database Management</span>
-                                <span class="edu-tag">Project Management</span>
-                                <span class="edu-tag">Data Structures</span>
                                 <span class="edu-tag">Software Engineering</span>
+                                <span class="edu-tag">Artificial Intelligence</span>
+                                <span class="edu-tag">System Analysis</span>
+                                <span class="edu-tag">Operating Systems</span>
+                                <span class="edu-tag">Computer Architecture</span>
+                                <span class="edu-tag">Database Design & Management</span>
                             </div>
                         </div>
                         <div class="edu-cert-visual">
                             <span class="cert-icon">🎓</span>
                             <p class="cert-name">B.Sc. Certificate</p>
                             <p class="cert-org">Landmark University, 2024</p>
-                            <a href="./images/certificates/bsc-landmark.jpg" target="_blank" rel="noopener">View certificate ↗</a>
                         </div>
                     </div>
 
                     <p class="bg-subhead">Certifications</p>
-                    <div class="cert-row-list">
-                        <div class="cert-row">
-                            <div class="cert-row-icon">🏅</div>
-                            <div>
-                                <p class="cert-row-title">HNG Internship 13 — Virtual Assistance Track</p>
-                                <p class="cert-row-sub">Top 450 of 12,362 interns</p>
+
+                    <!-- CERTIFICATE GALLERY -->
+                    <div class="certificate-gallery">
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-alx')">
+                            <img src="./images/certs/ALX Virtual Assistant Certificate.png" alt="ALX Virtual Assistant Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">ALX Virtual Assistant</p>
+                                <p class="certificate-card-sub">ALX Africa · 2025</p>
                             </div>
-                        </div>
-                        <div class="cert-row">
-                            <div class="cert-row-icon">📜</div>
-                            <div>
-                                <p class="cert-row-title">Virtual Assistant Professional Training</p>
-                                <p class="cert-row-sub">ALX Africa &middot; 10-Week Programme</p>
+                        </button>
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-pmp')">
+                            <img src="./images/certs/Exford Training Certifications_1.png" alt="Project Management Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">Project Management</p>
+                                <p class="certificate-card-sub">Exford Global · 2025</p>
                             </div>
-                        </div>
-                        <div class="cert-row">
-                            <div class="cert-row-icon">📋</div>
-                            <div>
-                                <p class="cert-row-title">Project Management (PMP)</p>
-                                <p class="cert-row-sub">Exford Global Consult Limited</p>
+                        </button>
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-csrm')">
+                            <img src="./images/certs/Exford Training Certifications_2.png" alt="Customer Service & Relationship Management Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">Customer Service & Relationship Management</p>
+                                <p class="certificate-card-sub">Exford Global · 2025</p>
                             </div>
-                        </div>
-                        <div class="cert-row">
-                            <div class="cert-row-icon">🤝</div>
-                            <div>
-                                <p class="cert-row-title">Customer Service &amp; Relationship Management</p>
-                                <p class="cert-row-sub">Exford Global Consult Limited</p>
+                        </button>
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-hrm')">
+                            <img src="./images/certs/Exford Training Certifications_3.png" alt="Human Resources Management Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">Human Resources Management</p>
+                                <p class="certificate-card-sub">Exford Global · 2025</p>
                             </div>
+                        </button>
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-ghse')">
+                            <img src="./images/certs/Exford Training Certifications_5.png" alt="General Health Safety & Environment Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">General Health Safety & Environment</p>
+                                <p class="certificate-card-sub">Exford Global · 2025</p>
+                            </div>
+                        </button>
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-ai-biz')">
+                            <img src="./images/certs/AI FOR BUSINESS OPERATIONS Certificate_1.png" alt="AI for Business Operations Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">AI for Business Operations</p>
+                                <p class="certificate-card-sub">Coursiv · 2026</p>
+                            </div>
+                        </button>
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-claude')">
+                            <img src="./images/certs/Master of Claude_1.png" alt="Master of Claude Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">Master of Claude</p>
+                                <p class="certificate-card-sub">Coursiv · 2026</p>
+                            </div>
+                        </button>
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-python')">
+                            <img src="./images/certs/Afrihub - Python programming completion _1.png" alt="Python Programming Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">Python Programming</p>
+                                <p class="certificate-card-sub">Afrihub ICT · 2022</p>
+                            </div>
+                        </button>
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-pcap')">
+                            <img src="./images/certs/PYT-certificate_1.png" alt="PCAP Python Essentials Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">PCAP: Python Essentials</p>
+                                <p class="certificate-card-sub">Cisco / OpenEDG · 2022</p>
+                            </div>
+                        </button>
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-excel')">
+                            <img src="./images/certs/Statement of accomplishment_1.png" alt="Introduction to Excel Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">Introduction to Excel</p>
+                                <p class="certificate-card-sub">DataCamp · 2025</p>
+                            </div>
+                        </button>
+
+                    </div>
+
+                    <!-- CERT LIGHTBOX -->
+                    <div id="certLightbox" class="cert-lightbox" onclick="closeCert(event)">
+                        <div class="cert-lightbox-inner">
+                            <button class="cert-lightbox-close" onclick="closeCert(null, true)">✕</button>
+                            <div class="cert-lightbox-body" id="certLightboxBody"></div>
                         </div>
                     </div>
 
@@ -712,28 +818,192 @@
 <div class="section-divider"></div>
 
 <section id="testimonials">
-    <div class="section-label">Social Proof</div>
-    <h2>What clients say.</h2>
-    <div class="testimonials-grid">
-        <div class="testimonial-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733; &nbsp; 10/10</div>
-            <p class="testi-quote">Oghenefego provided exceptional support during an intense period. She was instrumental in managing my schedule — despite having so many competing priorities, she kept me on track and I didn't have to worry about missing meetings or losing track of important tasks.</p>
-            <span class="testi-name">Michael Abu (@MiKEY)</span>
-            <span class="testi-role">Sales &amp; Video Track Lead &middot; Mentor, VA Track &middot; Product Owner, SchoolBase, Resolve.vote &amp; Usemenucard.com</span>
+        <div class="section-label">Social Proof</div>
+        <h2>What people say.</h2>
+        <p class="testi-sublabel">Clients &amp; mentees — two sliders with screenshot previews</p>
+
+        <!-- SLIDER 1: Clients & Colleagues -->
+        <p class="testi-sublabel" style="margin-top:0.6rem;">Clients &amp; colleagues</p>
+        <div style="overflow: hidden;" id="slider1-container">
+            <div class="slider-track" id="slider1">
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Ms. Oghenefego worked with me as a valued intern at NIRSAL PLC. I can confidently attest to her exceptional skills, dedication, and outstanding contributions to our organisation."</p>
+                        <button class="view-btn" onclick="openTL('t1')">&#128065; View</button>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);">MS</div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Mohammed S. <span class="verified-badge">Verified</span></p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Head Internal Control &amp; Compliance · NIRSAL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Fego displayed a high level of dedication, discipline, and professionalism. She actively participated in risk assessments, compliance checks, and contributed to the accuracy of departmental reports."</p>
+                        <button class="view-btn" onclick="openTL('t2')">&#128065; View</button>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-secondary);color:var(--color-text-secondary);">BA</div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Bashir A. <span class="verified-badge">Verified</span></p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Supervisor, Internal Control · NIRSAL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Fego's ability to remain calm and composed under pressure is very impressive. She's very hard-working, thinks fast and outside the box and implements creative solutions."</p>
+                        <button class="view-btn" onclick="openTL('t3')">&#128065; View</button>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-success);color:var(--color-text-success);">SU</div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Sunusi U. <span class="verified-badge">Verified</span></p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Colleague · NIRSAL</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Fego was an absolute pleasure to work with. Her creativity, strong skills, and positive attitude made collaborating with her effortless and enjoyable."</p>
+                        <button class="view-btn" onclick="openTL('t4')">&#128065; View</button>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-warning);color:var(--color-text-warning);">VH</div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Vada H. <span class="verified-badge">Verified</span></p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Recruiter · Platinum Staffing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Oghenefego consistently delivers high-quality work with remarkable attention to detail, professionalism, and efficiency. She has proven to be reliable, resourceful, and proactive."</p>
+                        <button class="view-btn" onclick="openTL('t5')">&#128065; View</button>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-danger);color:var(--color-text-danger);">IO</div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Ihuoma O. <span class="verified-badge">Verified</span></p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Head, Agric. Value Chain Finance · NIRSAL</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="testimonial-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-quote">Her punctuality and consistency were key. She was always on time for meetings, and the notes were delivered promptly with clear action points. This allowed me to stay organized and avoid unnecessary delays in follow-ups.</p>
-            <span class="testi-name">Michael Abu (@MiKEY)</span>
-            <span class="testi-role">Product Owner, SchoolBase &middot; Abuja, Nigeria</span>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;">
+            <div style="display:flex;gap:6px;" id="dots1">
+                <div class="dot active"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div>
+            </div>
+            <div style="display:flex;gap:8px;">
+                <button class="nav-btn" onclick="slide('slider1','dots1',-1)" aria-label="Previous">&#8592;</button>
+                <button class="nav-btn" onclick="slide('slider1','dots1',1)" aria-label="Next">&#8594;</button>
+            </div>
         </div>
-        <div class="testimonial-card">
-            <div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-            <p class="testi-quote">Absolutely, without a doubt, I would work with Oghenefego again and highly recommend her to anyone in need of a reliable, highly skilled VA. She provided immense value — keeping my schedule under control and ensuring everything ran smoothly.</p>
-            <span class="testi-name">Michael Abu (@MiKEY)</span>
-            <span class="testi-role">Mentor, Virtual Assistant Track &middot; SchoolBase Program</span>
+
+        <!-- SLIDER 2: Mentees -->
+        <p class="testi-sublabel" style="margin-top:2rem;">What my mentees say</p>
+        <div style="overflow:hidden;" id="slider2-container">
+            <div class="slider-track" id="slider2">
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Fego is the kind of mentor who makes you want to do better not because you are scared but because she actually believes you can. That is rare and I do not take it for granted."</p>
+                        <button class="view-btn" onclick="openTL('t6')">&#128065; View</button>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);">FF</div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">FavouriteFavour</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">HNG Tech · VA Track Mentee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"The day you corrected how I should pitch was the day you made a great impression on me. Thank you so much for that teaching which you carried out whole-heartedly."</p>
+                        <button class="view-btn" onclick="openTL('t7')">&#128065; View</button>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-success);color:var(--color-text-success);">MI</div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Ms Ifyyy</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">HNG Tech · VA Track Mentee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"If you were a math teacher I wouldn't miss your class for anything. You carry us on so well with patience and a bit of sarcasm. I just love you and I look forward to your messages always."</p>
+                        <button class="view-btn" onclick="openTL('t8')">&#128065; View</button>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-warning);color:var(--color-text-warning);">KS</div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Kubiat Samuel</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">HNG Tech · VA Track Mentee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"I thought I knew this work, but immediately I saw her work — just a Google spreadsheet — I bowed. There is a difference between an Operations Support VA and an Executive VA."</p>
+                        <button class="view-btn" onclick="openTL('t9')">&#128065; View</button>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-danger);color:var(--color-text-danger);">HO</div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Henry Odinaka Ugenyi</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">HNG Tech · VA Track Mentee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"To our able mentors, thank you so much for your guidelines and Fego, special thanks to you. I used your method and landed a client."</p>
+                        <button class="view-btn" onclick="openTL('t10')">&#128065; View</button>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);">SV</div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Sona the VA</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">HNG Tech · VA Track Mentee · Stage 1</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1rem;">
+            <div style="display:flex;gap:6px;" id="dots2">
+                <div class="dot active"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div>
+            </div>
+            <div style="display:flex;gap:8px;">
+                <button class="nav-btn" onclick="slide('slider2','dots2',-1)" aria-label="Previous">&#8592;</button>
+                <button class="nav-btn" onclick="slide('slider2','dots2',1)" aria-label="Next">&#8594;</button>
+            </div>
+        </div>
+
+        <!-- TESTIMONIAL LIGHTBOX -->
+        <div class="tl-lightbox" id="tlLightbox" onclick="closeTL(event)">
+            <div class="tl-inner">
+                <button class="tl-close" onclick="closeTL(null,true)">&#10005;</button>
+                <img id="tlImg" src="" alt="Testimonial screenshot">
+            </div>
+        </div>
+
 </section>
 
 <div class="section-divider"></div>
@@ -883,6 +1153,89 @@
         });
     }
 
+    // TESTIMONIAL LIGHTBOX
+    const tlImages = {
+            t1: './images/testimonials/1.png',
+            t2: './images/testimonials/2.png',
+            t3: './images/testimonials/3.png',
+            t4: './images/testimonials/4.png',
+            t5: './images/testimonials/5.png',
+            // reuse existing images for additional lightbox entries
+            t6: './images/testimonials/1.png',
+            t7: './images/testimonials/2.png',
+            t8: './images/testimonials/3.png',
+            t9: './images/testimonials/4.png',
+            t10: './images/testimonials/5.png',
+    };
+    function openTL(key) {
+      const src = tlImages[key];
+      if (!src) return;
+      document.getElementById('tlImg').src = src;
+      document.getElementById('tlLightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeTL(e, force) {
+      if (force || (e && e.target === document.getElementById('tlLightbox'))) {
+        document.getElementById('tlLightbox').classList.remove('open');
+        document.getElementById('tlImg').src = '';
+        document.body.style.overflow = '';
+      }
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeTL(null, true); });
+
+    // Two-slider controls
+    const sliderState = { slider1: 0, slider2: 0 };
+    function slide(sliderId, dotsId, dir) {
+        const track = document.getElementById(sliderId);
+        if (!track) return;
+        const cards = track.querySelectorAll('.review-card');
+        if (!cards.length) return;
+        const container = track.parentElement;
+        const gap = 12; // px
+        const cardWidth = cards[0].getBoundingClientRect().width + gap;
+        const stateKey = sliderId;
+        const maxIndex = Math.max(0, cards.length - Math.floor(container.getBoundingClientRect().width / (cardWidth - gap)) - 0);
+        sliderState[stateKey] = Math.min(Math.max((sliderState[stateKey] || 0) + dir, 0), Math.max(0, cards.length - 1));
+        const translateX = -(sliderState[stateKey] * cardWidth);
+        track.style.transform = `translateX(${translateX}px)`;
+        // update dots
+        const dots = document.getElementById(dotsId);
+        if (dots) {
+            const ds = dots.querySelectorAll('.dot');
+            ds.forEach((d, i) => d.classList.toggle('active', i === 0 ? sliderState[stateKey] === 0 : i === Math.min(ds.length-1, sliderState[stateKey])));
+        }
+    }
+
+    // CERT FILE MANAGER LIGHTBOX
+    const certData = {
+        'cert-alx':      { src: './images/certs/ALX Virtual Assistant Certificate.png',      title: 'ALX Africa — Virtual Assistant Professional (10-Week Programme, 2025)' },
+        'cert-pmp':      { src: './images/certs/Exford Training Certifications_1.png',      title: 'Project Management Professional (PMP) — Exford Global Consult (2025)' },
+        'cert-csrm':     { src: './images/certs/Exford Training Certifications_2.png',     title: 'Customer Service & Relationship Management — Exford Global Consult (2025)' },
+        'cert-hrm':      { src: './images/certs/Exford Training Certifications_3.png',      title: 'Human Resources Management — Exford Global Consult (2025)' },
+        'cert-ghse':     { src: './images/certs/Exford Training Certifications_5.png',     title: 'General Health Safety & Environment (GHSE 1 & 2) — Exford Global Consult (2025)' },
+        'cert-ai-biz':   { src: './images/certs/AI FOR BUSINESS OPERATIONS Certificate_1.png',   title: 'AI for Business Operations — Coursiv (March 2026)' },
+        'cert-claude':   { src: './images/certs/Master of Claude_1.png',   title: 'Master of Claude — Coursiv (March 2026)' },
+        'cert-python':   { src: './images/certs/Afrihub - Python programming completion _1.png',   title: 'Python Programming — Afrihub ICT Institute (September 2022)' },
+        'cert-pcap':     { src: './images/certs/PYT-certificate_1.png',     title: 'PCAP: Programming Essentials in Python — Cisco / OpenEDG (2022)' },
+        'cert-excel':    { src: './images/certs/Statement of accomplishment_1.png',    title: 'Introduction to Excel — DataCamp (October 2025)' },
+    };
+
+    function openCert(id) {
+        const d = certData[id];
+        if (!d) return;
+        const lb = document.getElementById('certLightbox');
+        const body = document.getElementById('certLightboxBody');
+        body.innerHTML = `<img src="${d.src}" alt="${d.title}"><p class="cert-lb-title">${d.title}</p>`;
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeCert(e, force) {
+        if (force || (e && e.target === document.getElementById('certLightbox'))) {
+            document.getElementById('certLightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeCert(null, true); });
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {
             if (e.isIntersecting) {
