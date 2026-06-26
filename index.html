@@ -180,7 +180,7 @@
         .edu-cert-visual p { margin: 0; }
         .edu-cert-visual .cert-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); }
         .edu-cert-visual .cert-org { font-size: 12px; color: var(--color-text-tertiary); }
-        .edu-cert-visual a, .edu-cert-visual .edu-cert-visual-btn { font-size: 12px; color: var(--color-text-info); text-decoration: none; margin-top: 4px; }
+        .edu-cert-visual a { font-size: 12px; color: var(--color-text-info); text-decoration: none; margin-top: 4px; }
         .cert-row-list { display: flex; flex-direction: column; gap: 10px; }
         .cert-row { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 12px; }
         .cert-row .cert-row-icon { width: 36px; height: 36px; border-radius: 50%; background: var(--color-background-info); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 16px; color: var(--color-text-info); }
@@ -195,7 +195,6 @@
         .certificate-card { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 16px; overflow: hidden; cursor: pointer; transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease; display: flex; flex-direction: column; }
         .certificate-card:hover { transform: translateY(-3px); border-color: var(--warm); box-shadow: 0 16px 34px rgba(0,0,0,0.08); }
         .certificate-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
-        .certificate-card .certificate-card-pdf { width: 100%; aspect-ratio: 4 / 3; display:flex; align-items:center; justify-content:center; background:#131009; color:var(--color-text-tertiary); font-size:36px; }
         .certificate-card-meta { padding: 0.95rem 1rem 1.1rem; }
         .certificate-card-title { font-size: 0.88rem; font-weight: 600; color: var(--color-text-primary); margin: 0 0 0.35rem; }
         .certificate-card-sub { font-size: 0.76rem; color: var(--color-text-secondary); margin: 0; line-height: 1.45; }
@@ -235,24 +234,19 @@
         .slider-track { display: flex; gap: 12px; transition: transform 0.45s cubic-bezier(.2,.9,.2,1); padding: 4px 0; }
         .review-card { min-width: 320px; max-width: 420px; flex: 0 0 auto; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 12px; padding: 1.1rem; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.35); }
         .review-card p { margin: 0 0 0.4rem; }
-        .avatar { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; flex-shrink: 0; }
-        .verified-badge { font-size: 10px; color: var(--warm); background: rgba(201,169,110,0.12); padding: 2px 6px; border-radius: 999px; margin-left: 4px; }
         .view-btn { margin-top: 8px; background: transparent; border: 0.5px solid rgba(201,169,110,0.12); color: var(--warm); padding: 6px 10px; border-radius: 6px; cursor: pointer; font-size: 0.82rem; }
         .nav-btn { background: var(--accent); border: none; color: #0A0806; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-weight: 500; transition: background 0.2s; flex-shrink: 0; }
         .nav-btn:hover { background: var(--warm); }
-        .slider-row { display: flex; align-items: center; gap: 0.75rem; }
-        .slider-row .slider-scroll { flex: 1; min-width: 0; overflow: hidden; }
-        .cert-click-hint { display: none; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.75rem; }
-        .cert-thumb-placeholder { width: 100%; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center; background: #131009; font-size: 2.2rem; color: rgba(201,169,110,0.45); }
-        .cert-pdf-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 1rem; }
-        @media (max-width: 600px) { .cert-pdf-grid { grid-template-columns: 1fr; } }
-        .view-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-        .view-btn-slides { display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem; background: transparent; border: 0.5px solid rgba(201,169,110,0.12); color: var(--warm); padding: 6px 10px; border-radius: 6px; cursor: pointer; text-decoration: none; }
-        .view-btn-slides:hover { border-color: var(--warm); color: var(--ivory); }
-        @media (max-width: 900px) { .cert-click-hint { display: block; } }
         .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(232,224,212,0.12); }
         .dot.active { background: var(--warm); }
         .dot.inactive { opacity: 0.5; }
+        .avatar { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 500; flex-shrink: 0; }
+        .verified-badge { font-size: 10px; color: var(--warm); background: rgba(201,169,110,0.12); padding: 2px 6px; border-radius: 999px; margin-left: 4px; }
+        .slider-row { display: flex; align-items: center; gap: 0.75rem; }
+        .slider-row .slider-scroll { flex: 1; min-width: 0; overflow: hidden; }
+        .view-btns { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+        .view-btn-slides { display: inline-flex; align-items: center; gap: 4px; font-size: 0.82rem; background: transparent; border: 0.5px solid rgba(201,169,110,0.12); color: var(--warm); padding: 6px 10px; border-radius: 6px; cursor: pointer; text-decoration: none; }
+        .view-btn-slides:hover { border-color: var(--warm); color: var(--ivory); }
         @media (max-width: 960px) { .review-card { min-width: 260px; } }
         /* Testimonial screenshot lightbox */
         .tl-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.85); backdrop-filter: blur(6px); align-items: center; justify-content: center; }
@@ -388,7 +382,7 @@
             <div class="about-quick">
                 <div class="aq-item"><div class="aq-dot"></div><div class="aq-text"><strong>Role:</strong> Operations &amp; Executive Partner</div></div>
                 <div class="aq-item"><div class="aq-dot"></div><div class="aq-text"><strong>Based in:</strong> Abuja, Nigeria</div></div>
-                    <div class="aq-item"><div class="aq-dot"></div><div class="aq-text"><strong>Availability:</strong> Available Remotely Worldwide</div></div>
+                <div class="aq-item"><div class="aq-dot"></div><div class="aq-text"><strong>Availability:</strong> Remote &middot; Worldwide</div></div>
                 <div class="aq-item"><div class="aq-dot"></div><div class="aq-text"><strong>Focus:</strong> Executive partnership and support, systems &amp; operations</div></div>
             </div>
             
@@ -642,7 +636,7 @@
         <p style="font-size:11px;letter-spacing:0.08em;color:var(--warm);text-transform:uppercase;margin:0 0 6px;">Oct 2025 – Dec 2025</p>
         <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Virtual Assistant Intern</p>
         <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">HNG Tech · Competitive Internship (Remote)</p>
-        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Completed the Virtual Assistant track of HNG Tech's globally competitive internship program, progressing through all 10 stages and finishing as a Finalist out of 12,362 interns across all tracks.</p>
+        <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Completed the Virtual Assistant track of HNG Tech's globally competitive internship program, progressing through all 10 stages and finishing as a Finalist out of 12,362 interns across all tracks. Served as Team Lead in selected stages, working hand-in-hand with teammates to deliver collaborative tasks under real client-style conditions.</p>
         <button onclick="toggle('hng-intern')" style="font-size:12px;color:var(--warm);background:none;border:0.5px solid var(--warm);border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
             <span id="hng-intern-label">+ View full scope of work</span>
         </button>
@@ -671,7 +665,7 @@
     <!-- Role 5 -->
     <div>
         <p style="font-size:11px;letter-spacing:0.08em;color:var(--warm);text-transform:uppercase;margin:0 0 6px;">Feb 2025 – Dec 2025</p>
-        <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">Internal Control & Compliance Intern</p>
+        <p style="font-size:22px;font-weight:400;margin:0 0 4px;color:var(--color-text-primary);">NYSC Intern</p>
         <p style="font-size:14px;color:var(--color-text-secondary);margin:0 0 12px;">NIRSAL Plc · Abuja, Nigeria</p>
         <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin:0 0 14px;">Completed Nigeria's mandatory one-year National Youth Service Corps (NYSC) programme at Nigeria Incentive-Based Risk Sharing System for Agricultural Lending (NIRSAL Plc), one of Nigeria's foremost agricultural finance institutions. Supported the administrative and documentation operations of the organization across a 10-month service year.</p>
         <button onclick="toggle('nirsal')" style="font-size:12px;color:var(--warm);background:none;border:0.5px solid var(--warm);border-radius:999px;cursor:pointer;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;">
@@ -723,23 +717,32 @@
                             </div>
                         </div>
                         <div class="edu-cert-visual">
-                                    <span class="cert-icon">🎓</span>
-                                    <p class="cert-name">B.Sc. Certificate</p>
-                                    <p class="cert-org">Landmark University, 2024</p>
-                                    <a href="#" onclick="openCert('cert-bsc');return false;" class="edu-cert-visual-btn">View certificate ↗</a>
-                                </div>
+                            <span class="cert-icon">🎓</span>
+                            <p class="cert-name">B.Sc. Certificate</p>
+                            <p class="cert-org">Landmark University, 2024</p>
+                            <button onclick="openCert('cert-bsc')" style="font-size:12px;color:var(--color-text-info);background:none;border:none;cursor:pointer;padding:0;text-decoration:underline;">View certificate ↗</button>
+                        </div>
                     </div>
 
                     <p class="bg-subhead">Certifications</p>
 
- <!-- CERTIFICATE GALLERY -->
+                    <!-- CERTIFICATE GALLERY -->
+                    <p style="font-size:0.76rem;color:var(--muted);letter-spacing:0.06em;margin-bottom:0.75rem;">Click any certificate to view</p>
                     <div class="certificate-gallery">
 
                         <button type="button" class="certificate-card" onclick="openCert('cert-alx')">
                             <img src="./images/certs/ALX Virtual Assistant Certificate.png" alt="ALX Virtual Assistant Certificate" loading="lazy">
                             <div class="certificate-card-meta">
                                 <p class="certificate-card-title">ALX Virtual Assistant</p>
-                                <p class="certificate-card-sub">ALX Africa · 2025</p>
+                                <p class="certificate-card-sub">ALX Africa &middot; 2025</p>
+                            </div>
+                        </button>
+
+                        <button type="button" class="certificate-card" onclick="openCert('cert-hng-va')">
+                            <img src="./images/certs/HNG VA Certificate.png" alt="HNG Tech VA Certificate" loading="lazy">
+                            <div class="certificate-card-meta">
+                                <p class="certificate-card-title">Virtual Assistant &mdash; Finalist</p>
+                                <p class="certificate-card-sub">HNG Tech &middot; 2025</p>
                             </div>
                         </button>
 
@@ -747,15 +750,15 @@
                             <img src="./images/certs/Exford Training Certifications_1.png" alt="Project Management Certificate" loading="lazy">
                             <div class="certificate-card-meta">
                                 <p class="certificate-card-title">Project Management</p>
-                                <p class="certificate-card-sub">Exford Global · 2025</p>
+                                <p class="certificate-card-sub">Exford Global &middot; 2025</p>
                             </div>
                         </button>
 
                         <button type="button" class="certificate-card" onclick="openCert('cert-csrm')">
-                            <img src="./images/certs/Exford Training Certifications_2.png" alt="Customer Service & Relationship Management Certificate" loading="lazy">
+                            <img src="./images/certs/Exford Training Certifications_2.png" alt="Customer Service &amp; Relationship Management Certificate" loading="lazy">
                             <div class="certificate-card-meta">
-                                <p class="certificate-card-title">Customer Service & Relationship Management</p>
-                                <p class="certificate-card-sub">Exford Global · 2025</p>
+                                <p class="certificate-card-title">Customer Service &amp; Relationship Management</p>
+                                <p class="certificate-card-sub">Exford Global &middot; 2025</p>
                             </div>
                         </button>
 
@@ -763,15 +766,7 @@
                             <img src="./images/certs/Exford Training Certifications_3.png" alt="Human Resources Management Certificate" loading="lazy">
                             <div class="certificate-card-meta">
                                 <p class="certificate-card-title">Human Resources Management</p>
-                                <p class="certificate-card-sub">Exford Global · 2025</p>
-                            </div>
-                        </button>
-
-                        <button type="button" class="certificate-card" onclick="openCert('cert-ghse')">
-                            <img src="./images/certs/Exford Training Certifications_5.png" alt="General Health Safety & Environment Certificate" loading="lazy">
-                            <div class="certificate-card-meta">
-                                <p class="certificate-card-title">General Health Safety & Environment</p>
-                                <p class="certificate-card-sub">Exford Global · 2025</p>
+                                <p class="certificate-card-sub">Exford Global &middot; 2025</p>
                             </div>
                         </button>
 
@@ -779,41 +774,17 @@
                             <img src="./images/certs/AI FOR BUSINESS OPERATIONS Certificate_1.png" alt="AI for Business Operations Certificate" loading="lazy">
                             <div class="certificate-card-meta">
                                 <p class="certificate-card-title">AI for Business Operations</p>
-                                <p class="certificate-card-sub">Coursiv · 2026</p>
+                                <p class="certificate-card-sub">Coursiv &middot; 2026</p>
                             </div>
                         </button>
 
-                        <button type="button" class="certificate-card" onclick="openCert('cert-claude')">
-                            <img src="./images/certs/Master of Claude_1.png" alt="Master of Claude Certificate" loading="lazy">
-                            <div class="certificate-card-meta">
-                                <p class="certificate-card-title">Master of Claude</p>
-                                <p class="certificate-card-sub">Coursiv · 2026</p>
-                            </div>
-                        </button>
+                        
 
-                        <button type="button" class="certificate-card" onclick="openCert('cert-python')">
-                            <img src="./images/certs/Afrihub - Python programming completion _1.png" alt="Python Programming Certificate" loading="lazy">
-                            <div class="certificate-card-meta">
-                                <p class="certificate-card-title">Python Programming</p>
-                                <p class="certificate-card-sub">Afrihub ICT · 2022</p>
-                            </div>
-                        </button>
+                        
 
-                        <button type="button" class="certificate-card" onclick="openCert('cert-pcap')">
-                            <img src="./images/certs/PYT-certificate_1.png" alt="PCAP Python Essentials Certificate" loading="lazy">
-                            <div class="certificate-card-meta">
-                                <p class="certificate-card-title">PCAP: Python Essentials</p>
-                                <p class="certificate-card-sub">Cisco / OpenEDG · 2022</p>
-                            </div>
-                        </button>
+                        
 
-                        <button type="button" class="certificate-card" onclick="openCert('cert-excel')">
-                            <img src="./images/certs/Statement of accomplishment_1.png" alt="Introduction to Excel Certificate" loading="lazy">
-                            <div class="certificate-card-meta">
-                                <p class="certificate-card-title">Introduction to Excel</p>
-                                <p class="certificate-card-sub">DataCamp · 2025</p>
-                            </div>
-                        </button>
+                        
 
                     </div>
 
@@ -837,26 +808,24 @@
         <h2>What people say.</h2>
 
         <!-- SLIDER 1: Clients & Colleagues -->
-        <p class="testi-sublabel" style="margin-top:0.6rem;">Clients &amp; colleagues</p>
+        <p class="testi-sublabel" style="margin-top:1.5rem;">Clients &amp; colleagues</p>
         <div class="slider-row">
             <button class="nav-btn" onclick="slide('slider1','dots1',-1)" aria-label="Previous">&#8592;</button>
             <div class="slider-scroll" id="slider1-container">
             <div class="slider-track" id="slider1">
 
-                 <div class="review-card">
+                <div class="review-card">
                     <div>
-                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Oghenefego provided exceptional support during an intense period. She was instrumental in managing my schedule — despite having so many competing priorities, she kept me on track and I didn't have to worry about missing meetings or losing track of important tasks."</p>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Given the complexity of the tasks she managed and the positive impact her work had on my productivity, I would rate Oghenefego&#39;s support at 10/10. She was organised, proactive, and highly efficient, ensuring that I could focus on my most important work while she handled the logistical details."</p>
+                        <div class="view-btns">
+                            <a href="https://docs.google.com/document/d/1UDCm-rfsIY1KkeTJoBBcqu8yZ8Xp6lUfAP9j-q-4l4Q/edit?usp=sharing" target="_blank" rel="noopener" class="view-btn-slides">&#128202; View full report ↗</a>
+                        </div>
                     </div>
                     <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
                         <div>
                             <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Michael Abu</p>
-                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Sales &amp; Video Track Lead · Mentor, VA Track · Product Owner</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Founder, Resolve.vote &amp; Usemenucard.com · Product Owner, SchoolBase</p>
                         </div>
                     </div>
                 </div>
@@ -864,17 +833,14 @@
                 <div class="review-card">
                     <div>
                         <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Ms. Oghenefego worked with me as a valued intern at NIRSAL PLC. I can confidently attest to her exceptional skills, dedication, and outstanding contributions to our organisation."</p>
-                        <button class="view-btn" onclick="openTL('t1')">&#128065; View</button>
+                        <div class="view-btns">
+                            <button class="view-btn" onclick="openImgLB('./images/testimonials/mohammed.png')">&#128065; View</button>
+                        </div>
                     </div>
                     <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
                         <div>
-                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Mohammed S. <span class="verified-badge">Verified</span></p>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Mohammed S.</p>
                             <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Head Internal Control &amp; Compliance · NIRSAL</p>
                         </div>
                     </div>
@@ -883,17 +849,14 @@
                 <div class="review-card">
                     <div>
                         <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Fego displayed a high level of dedication, discipline, and professionalism. She actively participated in risk assessments, compliance checks, and contributed to the accuracy of departmental reports."</p>
-                        <button class="view-btn" onclick="openTL('t2')">&#128065; View</button>
+                        <div class="view-btns">
+                            <button class="view-btn" onclick="openImgLB('./images/testimonials/bashir.png')">&#128065; View</button>
+                        </div>
                     </div>
                     <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-secondary);color:var(--color-text-secondary);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
                         <div>
-                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Bashir A. <span class="verified-badge">Verified</span></p>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Bashir A.</p>
                             <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Supervisor, Internal Control · NIRSAL</p>
                         </div>
                     </div>
@@ -902,17 +865,14 @@
                 <div class="review-card">
                     <div>
                         <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Fego's ability to remain calm and composed under pressure is very impressive. She's very hard-working, thinks fast and outside the box and implements creative solutions."</p>
-                        <button class="view-btn" onclick="openTL('t3')">&#128065; View</button>
+                        <div class="view-btns">
+                            <button class="view-btn" onclick="openImgLB('./images/testimonials/sunusu.png')">&#128065; View</button>
+                        </div>
                     </div>
                     <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-success);color:var(--color-text-success);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
                         <div>
-                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Sunusi U. <span class="verified-badge">Verified</span></p>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Sunusi U.</p>
                             <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Colleague · NIRSAL</p>
                         </div>
                     </div>
@@ -921,17 +881,14 @@
                 <div class="review-card">
                     <div>
                         <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Fego was an absolute pleasure to work with. Her creativity, strong skills, and positive attitude made collaborating with her effortless and enjoyable."</p>
-                        <button class="view-btn" onclick="openTL('t4')">&#128065; View</button>
+                        <div class="view-btns">
+                            <button class="view-btn" onclick="openImgLB('./images/testimonials/vada.png')">&#128065; View</button>
+                        </div>
                     </div>
                     <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-warning);color:var(--color-text-warning);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
                         <div>
-                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Vada H. <span class="verified-badge">Verified</span></p>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Vada H.</p>
                             <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Recruiter · Platinum Staffing</p>
                         </div>
                     </div>
@@ -940,53 +897,31 @@
                 <div class="review-card">
                     <div>
                         <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Oghenefego consistently delivers high-quality work with remarkable attention to detail, professionalism, and efficiency. She has proven to be reliable, resourceful, and proactive."</p>
-                        <button class="view-btn" onclick="openTL('t5')">&#128065; View</button>
+                        <div class="view-btns">
+                            <button class="view-btn" onclick="openImgLB('./images/testimonials/ihuoma.png')">&#128065; View</button>
+                        </div>
                     </div>
                     <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-danger);color:var(--color-text-danger);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
                         <div>
-                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Ihuoma O. <span class="verified-badge">Verified</span></p>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Ihuoma O.</p>
                             <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Head, Agric. Value Chain Finance · NIRSAL</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="review-card">
-                    <div>
-                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Her punctuality and consistency were key. She was always on time for meetings, and the notes were delivered promptly with clear action points. This allowed me to stay organised and avoid unnecessary delays in follow-ups."</p>
-                        <button class="view-btn" onclick="openTL('t6')">&#128065; View</button>
-                    </div>
-                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
-                        <div>
-                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Michael Abu</p>
-                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">Sales &amp; Video Track Lead · Mentor, VA Track · Product Owner</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+                            </div>
             </div>
             <button class="nav-btn" onclick="slide('slider1','dots1',1)" aria-label="Next">&#8594;</button>
         </div>
         <div style="display:flex;align-items:center;justify-content:center;margin-top:1rem;">
             <div style="display:flex;gap:6px;" id="dots1">
-                <div class="dot active"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div>
+                <div class="dot active"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div>
             </div>
         </div>
 
         <!-- SLIDER 2: Mentees -->
-        <p class="testi-sublabel" style="margin-top:2rem;">What my mentees say</p>
+        <p class="testi-sublabel" style="margin-top:2.5rem;">What my mentees say</p>
         <div class="slider-row">
             <button class="nav-btn" onclick="slide('slider2','dots2',-1)" aria-label="Previous">&#8592;</button>
             <div class="slider-scroll" id="slider2-container">
@@ -994,16 +929,30 @@
 
                 <div class="review-card">
                     <div>
-                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"I am so happy and privileged to work closely with @Fego Umuteme. I learnt so much from her in just a few days. I thought I knew this work, but as soon as I saw her work, just a Google spreadsheet, I bowed"</p>
-                        <button class="view-btn" onclick="openTL('m1')">&#128065; View</button>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Thank you for your guidance, your honesty, and your genuine investment in my growth throughout this internship. You held a high bar and still made me feel like I could reach it. That combination is rare, and I do not take it for granted. Because of you, I leave this internship not just with skills, but with a standard I am holding myself to for every executive I will ever support."</p>
+                        <div class="view-btns">
+                            <button class="view-btn" onclick="openImgLB('./images/testimonials/1.png')">&#128065; View</button>
+                            <a href="https://drive.google.com/file/d/1n3Xf1ct-vb-KkVTGxHggweX5I5o-DKn7/view?usp=sharing" target="_blank" rel="noopener" class="view-btn-slides">&#128202; Spotlight Slides</a>
+                        </div>
                     </div>
                     <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-danger);color:var(--color-text-danger);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Favour Obi</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">VA Mentee</p>
                         </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"I am so happy and privileged to work closely with @Fego Umuteme. I learnt so much from her in just a few days. I thought I knew this work, but as soon as I saw her work, just a Google spreadsheet, I bowed"</p>
+                        <div class="view-btns">
+                            <button class="view-btn" onclick="openImgLB('./images/testimonials/4.png')">&#128065; View</button>
+                        </div>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
                         <div>
                             <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Henry Odinaka Ugenyi</p>
                             <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">VA Mentee</p>
@@ -1015,17 +964,12 @@
                     <div>
                         <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"the first mentor who touched my heart @Fego Umuteme, the day you corrected how I should pitch was the day you made a great impression on me, thank you so much for that particular teaching which you carried out wholeheartedly, and that teaching brought me to @Anne, the mentor I worked with for the stage 2 task."</p>
                         <div class="view-btns">
-                            <button class="view-btn" onclick="openTL('m2')">&#128065; View</button>
-                            <a href="./images/testimonials/MsFegs Mentor Spotlight V2.pptx.pdf" target="_blank" rel="noopener" class="view-btn-slides">&#128202; Spotlight Slides</a>
+                            <button class="view-btn" onclick="openImgLB('./images/testimonials/2.png')">&#128065; View</button>
+                            <a href="https://docs.google.com/presentation/d/1xMW-ouL208-aeGFGkMadbALAfPoUZ4h3/edit?usp=sharing&ouid=105729238440772091753&rtpof=true&sd=true" target="_blank" rel="noopener" class="view-btn-slides">&#128202; Spotlight Slides</a>
                         </div>
                     </div>
                     <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-success);color:var(--color-text-success);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
                         <div>
                             <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Ayogu Ifunanya</p>
                             <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">VA Mentee</p>
@@ -1036,15 +980,12 @@
                 <div class="review-card">
                     <div>
                         <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"If you were a math teacher, I wouldn't miss your class for anything. You carry us on so well with patience and a bit of sarcasm. I just love you, and I look forward to seeing your message always."</p>
-                        <button class="view-btn" onclick="openTL('m3')">&#128065; View</button>
+                        <div class="view-btns">
+                            <button class="view-btn" onclick="openImgLB('./images/testimonials/3.png')">&#128065; View</button>
+                        </div>
                     </div>
                     <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-warning);color:var(--color-text-warning);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
                         <div>
                             <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Kubiat Samuel</p>
                             <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">VA Mentee</p>
@@ -1054,18 +995,95 @@
 
                 <div class="review-card">
                     <div>
-                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Fego is the kind of mentor who makes you want to do better not because you are scared but because she actually believes you can. That is rare and I do not take it for granted."</p>
-                        <button class="view-btn" onclick="openTL('m4')">&#128065; View</button>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Special thanks to you, @Fego Umuteme. I used your method and landed a client."</p>
+                        <div class="view-btns">
+                            <button class="view-btn" onclick="openImgLB('./images/testimonials/5.png')">&#128065; View</button>
+                        </div>
                     </div>
                     <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
-                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;">
-                                <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/>
-                                <path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                            </svg>
-                        </div>
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
                         <div>
-                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Favour</p>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Sona</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">VA Mentee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"What makes Ms Fego remarkable is not just what she knows, but the fact that she has lived it. She was once an intern, she became an HNG Finalist, and she came back to mentor the next generation. That is the kind of professional I want to become, someone who grows through hard things and then reaches back to help others do the same. Thank you for showing us what it looks like to show up, figure it out, and keep things running quietly and excellently."</p>
+                        <div class="view-btns">
+                            <a href="https://drive.google.com/file/d/1n3Xf1ct-vb-KkVTGxHggweX5I5o-DKn7/view?usp=sharing" target="_blank" rel="noopener" class="view-btn-slides">&#128202; Spotlight Slides</a>
+                        </div>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Temilola Olayiwola</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">VA Mentee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"She pushed us to think about who we were becoming, not just what we were submitting. That's a different level of mentorship."</p>
+                        <div class="view-btns">
+                            <a href="https://drive.google.com/file/d/1b2ILD62bD6HomaOAuLKXAEnTONnP9RAY/view?usp=sharing" target="_blank" rel="noopener" class="view-btn-slides">&#128202; Spotlight Slides</a>
+                        </div>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Deborah Pelumi</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">VA Mentee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"Slack was so confusing, I was lost, but Fego walked me through it, without making me feel slow. She did something better than answer my questions; she connected me with people. Those people became my support system."</p>
+                        <div class="view-btns">
+                            <a href="https://drive.google.com/file/d/1BiubysJ3Txm_g-xn-fvRQtTpb8kn7LiM/view?usp=sharing" target="_blank" rel="noopener" class="view-btn-slides">&#128202; Spotlight Slides</a>
+                        </div>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Mulero Goodness</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">VA Mentee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"There was never a moment where her feedback felt like it came from a place of superiority. She listened first, understood the situation, and then responded with intention. That's a communication skill most people spend years trying to develop; she just does it naturally."</p>
+                        <div class="view-btns">
+                            <a href="https://gamma.com.ai/aippt/?shareId=1781156795883314768" target="_blank" rel="noopener" class="view-btn-slides">&#128202; Spotlight Slides</a>
+                        </div>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Timi Fadahunsi</p>
+                            <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">VA Mentee</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div>
+                        <p style="font-size:13px;color:var(--color-text-secondary);line-height:1.7;margin:0;">"What stood out most was her approachability. While some people naturally appeared difficult to approach, Ms Fegs consistently created an environment where interns felt comfortable asking questions, seeking clarification, and learning from mistakes."</p>
+                        <div class="view-btns">
+                            <a href="https://drive.google.com/file/d/1YfXhcPR261iHs9U3djKHpF2eadY2PrWx/view?usp=sharing" target="_blank" rel="noopener" class="view-btn-slides">&#128202; Spotlight Slides</a>
+                        </div>
+                    </div>
+                    <div style="border-top:0.5px solid var(--color-border-tertiary);padding-top:12px;display:flex;align-items:center;gap:10px;">
+                        <div class="avatar" style="background:var(--color-background-info);color:var(--color-text-info);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display:block;margin:auto;"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z"/><path fill="currentColor" d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div>
+                        <div>
+                            <p style="font-size:12px;font-weight:500;margin:0;color:var(--color-text-primary);">Uzezi Lemmy-Ughegbe</p>
                             <p style="font-size:11px;color:var(--color-text-tertiary);margin:0;">VA Mentee</p>
                         </div>
                     </div>
@@ -1077,11 +1095,11 @@
         </div>
         <div style="display:flex;align-items:center;justify-content:center;margin-top:1rem;">
             <div style="display:flex;gap:6px;" id="dots2">
-                <div class="dot active"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div>
+                <div class="dot active"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div><div class="dot inactive"></div>
             </div>
         </div>
 
-        <!-- TESTIMONIAL LIGHTBOX -->
+        <!-- TESTIMONIAL LIGHTBOX (kept for backward compat, not used now) -->
         <div class="tl-lightbox" id="tlLightbox" onclick="closeTL(event)">
             <div class="tl-inner">
                 <button class="tl-close" onclick="closeTL(null,true)">&#10005;</button>
@@ -1095,7 +1113,7 @@
 
 <section id="cta">
     <h2>Ready to stop juggling everything alone?</h2>
-    <p>Let's talk about how I can take things off your plate, optimize your operations, and help you focus on what truly moves the needle. No fluff — just results.</p>
+    <p>Let's talk about how I can take things off your plate, optimize your operations, and help you focus on what truly moves the needle.</p>
     <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3aB65CEymBRg9PMHTh7bvp9rqpGmp_0i_Du4Bg43-J8k-2SsdBn6UmJVVA1jDeCEX1RNeqswSl" target="_blank" rel="noopener" class="btn btn-primary">Book a Discovery Call</a>
 </section>
 
@@ -1143,15 +1161,14 @@
 
 <footer>
     <div class="footer-inner">
-        <p class="footer-tagline">Built with <span>precision</span> — just like everything I do.</p>
+        <p class="footer-tagline">Built with <span>precision</span>, just like everything I do.</p>
         <div class="social-row">
-            <a href="#" title="LinkedIn">in</a>
-            <a href="#" title="Twitter">𝕏</a>
-            <a href="#" title="Instagram">ig</a>
+            <a href="https://linkedin.com/in/umuteme-oghenefego" target="_blank" rel="noopener" title="LinkedIn">in</a>
+            <a href="https://x.com/UmutemeO9882" target="_blank" rel="noopener" title="Twitter/X">𝕏</a>
         </div>
     </div>
     <div class="footer-bottom">
-        <span>© 2025 Umuteme OgheneFego Peace · Operations &amp; Executive Partner</span>
+        <span>© 2026 Umuteme OgheneFego Peace · Operations &amp; Executive Partner</span>
         <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3aB65CEymBRg9PMHTh7bvp9rqpGmp_0i_Du4Bg43-J8k-2SsdBn6UmJVVA1jDeCEX1RNeqswSl" target="_blank" rel="noopener" class="footer-cta-link">Book a Discovery Call →</a>
     </div>
 </footer>
@@ -1240,17 +1257,28 @@
 
     // TESTIMONIAL LIGHTBOX
     const tlImages = {
-            t1: './images/testimonials/mohammed.png',
-            t2: './images/testimonials/bashir.png',
-            t3: './images/testimonials/sunusu.png',
-            t4: './images/testimonials/vada.png',
-            t5: './images/testimonials/ihuoma.png',
-            t6: './images/testimonials/5.png',
-            m1: './images/testimonials/4.png',
-            m2: './images/testimonials/2.png',
-            m3: './images/testimonials/3.png',
-            m4: './images/testimonials/1.png',
+            t1: './images/testimonials/1.png',
+            t2: './images/testimonials/2.png',
+            t3: './images/testimonials/3.png',
+            t4: './images/testimonials/4.png',
+            t5: './images/testimonials/5.png',
+            t6: './images/testimonials/6.png',
+            m2: './images/testimonials/henry.png',
+            m3: './images/testimonials/ifunanya.png',
+            m4: './images/testimonials/kubiat.png',
+            m5: './images/testimonials/sona.png',
     };
+    function openImgLB(src) {
+      // Drive/external links can't be embedded as img src — open in new tab
+      if (src.startsWith('http')) {
+        window.open(src, '_blank');
+        return;
+      }
+      // Local files: show in lightbox
+      document.getElementById('tlImg').src = src;
+      document.getElementById('tlLightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
     function openTL(key) {
       const src = tlImages[key];
       if (!src) return;
@@ -1292,17 +1320,13 @@
 
     // CERT FILE MANAGER LIGHTBOX
     const certData = {
-        'cert-bsc':      { src: './images/Bsc. Computer Science.pdf',      title: 'B.Sc. Computer Science — Landmark University (2024)' },
-        'cert-alx':      { src: './images/certs/ALX Virtual Assistant Certificate.png',      title: 'ALX Africa — Virtual Assistant Professional (10-Week Programme, 2025)' },
-        'cert-hng':      { src: './images/certs/HNG Certificate of Completion.pdf',      title: 'HNG Virtual Assistant — Certificate of Completion (2025)' },
-        'cert-pmp':      { src: './images/certs/Exford Training Certifications_1.png',      title: 'Project Management Professional (PMP) — Exford Global Consult (2025)' },
-        'cert-csrm':     { src: './images/certs/Exford Training Certifications_2.png',     title: 'Customer Service & Relationship Management — Exford Global Consult (2025)' },
-        'cert-hrm':      { src: './images/certs/Exford Training Certifications_3.png',      title: 'Human Resources Management — Exford Global Consult (2025)' },
-        'cert-ai-biz':   { src: './images/certs/AI FOR BUSINESS OPERATIONS Certificate_1.png',   title: 'AI for Business Operations — Coursiv (March 2026)' },
-        'cert-claude':   { src: './images/certs/Master of Claude_1.png',   title: 'Master of Claude — Coursiv (March 2026)' },
-        'cert-ai-robot': { src: './images/certs/AI & Robotics.pdf',   title: 'AI & Robotics — UBTECH / BredHub (2024)' },
-        'cert-python':   { src: './images/certs/Afrihub - Python programming completion _1.png',   title: 'Python Programming — Afrihub ICT Institute (September 2022)' },
-        'cert-pcap':     { src: './images/certs/PYT-certificate_1.png',     title: 'PCAP: Programming Essentials in Python — Cisco / OpenEDG (2022)' },
+        'cert-bsc':        { src: './images/Bsc. Computer Science.pdf',                              title: 'B.Sc. Computer Science — Landmark University (2024)', isPdf: true },
+        'cert-alx':        { src: './images/certs/ALX Virtual Assistant Certificate.png',            title: 'ALX Africa — Virtual Assistant Professional (2025)' },
+        'cert-hng-va':     { src: './images/certs/HNG VA Certificate.png',                           title: 'HNG Tech — Virtual Assistant Finalist (2025)' },
+        'cert-pmp':        { src: './images/certs/Exford Training Certifications_1.png',             title: 'Project Management — Exford Global Consult (2025)' },
+        'cert-csrm':       { src: './images/certs/Exford Training Certifications_2.png',             title: 'Customer Service & Relationship Management — Exford Global Consult (2025)' },
+        'cert-hrm':        { src: './images/certs/Exford Training Certifications_3.png',             title: 'Human Resources Management — Exford Global Consult (2025)' },
+        'cert-ai-biz':     { src: './images/certs/AI FOR BUSINESS OPERATIONS Certificate_1.png',    title: 'AI for Business Operations — Coursiv (March 2026)' },
     };
 
     function openCert(id) {
@@ -1310,7 +1334,7 @@
         if (!d) return;
         const lb = document.getElementById('certLightbox');
         const body = document.getElementById('certLightboxBody');
-        if (d.src.toLowerCase().endsWith('.pdf')) {
+        if (d.isPdf || d.src.toLowerCase().endsWith('.pdf')) {
             body.innerHTML = `<iframe src="${d.src}" title="${d.title}" style="width:100%;height:75vh;border:none;border-radius:8px;background:#fff;"></iframe><p class="cert-lb-title">${d.title}</p>`;
         } else {
             body.innerHTML = `<img src="${d.src}" alt="${d.title}"><p class="cert-lb-title">${d.title}</p>`;
